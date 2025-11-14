@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — SteelBuild Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script defer src="/assets/app.js"></script>
+</head>
+<body>
+  <div class="loader-overlay"><div class="spinner"></div></div>
+
+  <nav class="navbar">
+    <div class="container inner">
+      <a href="/home.html" class="brand"><div class="logo"></div><span>SteelBuild Co.</span></a>
+      <div class="nav-links"><a href="/home.html">Home</a><a href="/services.html">Services</a><a href="/projects.html">Projects</a><a href="/contact.html">Contact</a></div>
+      <button class="menu-btn" data-menu>Menu</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu"><div class="container"><a href="/home.html">Home</a><a href="/services.html">Services</a><a href="/projects.html">Projects</a><a href="/contact.html">Contact</a></div></div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <h2>Project Gallery</h2>
+      <p class="lead">A selection of our recent work across categories.</p>
+
+      <div class="center mt-2">
+        <button class="btn dark" data-filter="all">All</button>
+        <button class="btn outline" data-filter="construction">Construction</button>
+        <button class="btn outline" data-filter="painting">Painting</button>
+        <button class="btn outline" data-filter="electrical">Electrical</button>
+        <button class="btn outline" data-filter="interior">Interior</button>
+      </div>
+
+      <div class="gallery mt-4" id="gallery">
+        <figure data-cat="construction"><img src="https://images.unsplash.com/photo-1496307653780-42ee777d4833?q=80&w=1600&auto=format&fit=crop" alt="Construction 1"/></figure>
+        <figure data-cat="painting"><img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1600&auto=format&fit=crop" alt="Painting 1"/></figure>
+        <figure data-cat="electrical"><img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=1600&auto=format&fit=crop" alt="Electrical 1"/></figure>
+        <figure data-cat="interior"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop" alt="Interior 1"/></figure>
+        <figure data-cat="construction"><img src="https://images.unsplash.com/photo-1618338825469-3643700b208e?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxDb25zdHJ1Y3Rpb24lMjAyfGVufDB8MHx8fDE3NjMxMzA4MjF8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80" alt="Construction 2"/></figure>
+        <figure data-cat="painting"><img src="https://images.unsplash.com/photo-1684880408933-eb6864436192?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxQYWludGluZyUyMDJ8ZW58MHwwfHx8MTc2MzEzMDgyMnww&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80" alt="Painting 2"/></figure>
+        <figure data-cat="electrical"><img src="https://images.unsplash.com/photo-1532009324734-20a7a5813719?q=80&w=1600&auto=format&fit=crop" alt="Electrical 2"/></figure>
+        <figure data-cat="interior"><img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?q=80&w=1600&auto=format&fit=crop" alt="Interior 2"/></figure>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container row"><p>© 2025 SteelBuild Co.</p><div class="socials"><a href="#">T</a><a href="#">in</a></div></div></footer>
+
+  <script>
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-filter]');
+      if(!btn) return;
+      const cat = btn.getAttribute('data-filter');
+      document.querySelectorAll('#gallery figure').forEach(fig=>{
+        fig.style.display = (cat==='all' || fig.dataset.cat===cat) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
